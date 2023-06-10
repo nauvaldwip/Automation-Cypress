@@ -1,12 +1,17 @@
+import baseLogin from "../../support/PageObject/loginPage.cy"
 
-// DIKA
+const login = new baseLogin()
+const dataLogin = require("../../fixtures/tricentis/login.json")
+
+
 describe('template spec', () => {
 
     beforeEach('open page and login', () => {
-      cy.visit('https://opensource-demo.orangehrmlive.com/')
-      cy.get('[name="username"]').type('Admin')
-      cy.get('[type="password"]').type('admin123')
-      cy.get('[type="submit"]').click()
+    cy.visit(login.url)
+    cy.get(login.usernameField).type(dataLogin.username).should('have.value', dataLogin.username)
+    cy.get(login.passwordField).type(dataLogin.password).should('have.value', dataLogin.password)
+    cy.get(login.loginButton).click()
+    cy.wait(1000)
     })
 
     //Positive

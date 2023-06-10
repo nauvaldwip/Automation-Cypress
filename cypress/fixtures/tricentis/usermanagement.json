@@ -1,0 +1,26 @@
+{
+
+    "employeename" : "Odis",
+    "roleESS" : "ESS",
+    "roleAdmin" : "Admin",
+    "enabledStatus" : "Enabled",
+    "disabledStatus" : "Disabled",
+    "password" : "admin123",
+    "wrongPassword" : "wrongpassword",
+
+    "accountDisabled" : "Account disabled",
+    "required" : "Required",
+    "alreadyExist" : "Already exist",
+    "norecordsFound" : "No Records Found",
+    "invalid" : "Invalid",
+    "passdontmatch" : "Passwords do not match",
+    "40char" : "Should not exceed 40 characters",
+    "64char" : "Should not exceed 64 characters",
+    "5char" : "Should be at least 5 characters",
+    "7char" : "Should have at least 7 characters",
+
+    "minimum1lowercase" : "Your password must contain minimum 1 lower-case letter",
+    "minimum1number" : "Your password must contain minimum 1 number",
+    "anyspace" :"Your password should not contain spaces"
+    
+}
