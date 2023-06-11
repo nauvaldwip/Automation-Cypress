@@ -43,13 +43,13 @@ describe('Menu: Admin > User Management', () => {
     
     cy.get(usermanagement.adminButton).click()
     cy.get(usermanagement.addButton).click()
-    cy.get(usermanagement.userRole).click()
+    cy.get(usermanagement.userRoleForm).click()
     cy.contains(dataUsermanagement.roleESS).click()
-    cy.get(usermanagement.status).click()
+    cy.get(usermanagement.statusForm).click()
     cy.contains(dataUsermanagement.enabledStatus).click()
-    cy.get(usermanagement.employeeName).type(dataUsermanagement.employeename)
+    cy.get(usermanagement.employeeNameForm).type(dataUsermanagement.employeename)
     cy.contains("Odis Adalwin").click()
-    cy.get(usermanagement.username).type(randomString)
+    cy.get(usermanagement.usernameForm).type(randomString)
     cy.get(usermanagement.password).type(dataUsermanagement.password)
     cy.get(usermanagement.confirmPassword).type(dataUsermanagement.password)
     
@@ -66,8 +66,6 @@ describe('Menu: Admin > User Management', () => {
 
     //verify
     cy.get(usermanagement.nameDropdown).contains('Odis Adalwin')
-
-
   })
 
   // DISABLED ACCOUNT
@@ -76,13 +74,13 @@ describe('Menu: Admin > User Management', () => {
 
     cy.get(usermanagement.adminButton).click()
     cy.get(usermanagement.addButton).click()
-    cy.get(usermanagement.userRole).click()
+    cy.get(usermanagement.userRoleForm).click()
     cy.contains(dataUsermanagement.roleESS).click()
-    cy.get(usermanagement.status).click()
+    cy.get(usermanagement.statusForm).click()
     cy.contains(dataUsermanagement.disabledStatus).click()
-    cy.get(usermanagement.employeeName).type(dataUsermanagement.employeename)
+    cy.get(usermanagement.employeeNameForm).type(dataUsermanagement.employeename)
     cy.contains("Odis Adalwin").click()
-    cy.get(usermanagement.username).type(randomString)
+    cy.get(usermanagement.usernameForm).type(randomString)
     cy.get(usermanagement.password).type(dataUsermanagement.password)
     cy.get(usermanagement.confirmPassword).type(dataUsermanagement.password)
     
@@ -108,10 +106,10 @@ describe('Menu: Admin > User Management', () => {
     cy.get(usermanagement.adminButton).click()
     cy.get(usermanagement.addButton).click()
     cy.get(usermanagement.saveButton).click()
-    cy.get(usermanagement.userroleVerify).contains(dataUsermanagement.required)
-    cy.get(usermanagement.employeenameVerify).contains(dataUsermanagement.required)
-    cy.get(usermanagement.statusVerify).contains(dataUsermanagement.required)
-    cy.get(usermanagement.usernameVerify).contains(dataUsermanagement.required)
+    cy.get(usermanagement.userroleFormVerify).contains(dataUsermanagement.required)
+    cy.get(usermanagement.employeenameFormVerify).contains(dataUsermanagement.required)
+    cy.get(usermanagement.statusFormVerify).contains(dataUsermanagement.required)
+    cy.get(usermanagement.usernameFormVerify).contains(dataUsermanagement.required)
     cy.get(usermanagement.passwordVerify).contains(dataUsermanagement.required)
     cy.get(usermanagement.confirmpasswordVerify).contains(dataUsermanagement.required)
     cy.wait(4000)
@@ -122,13 +120,13 @@ describe('Menu: Admin > User Management', () => {
   it('[-] USERNAME ALREADY EXIST', () => {
     cy.get(usermanagement.adminButton).click()
     cy.get(usermanagement.addButton).click()
-    cy.get(usermanagement.userRole).click()
+    cy.get(usermanagement.userRoleForm).click()
     cy.contains(dataUsermanagement.roleESS).click()
-    cy.get(usermanagement.status).click()
+    cy.get(usermanagement.statusForm).click()
     cy.contains(dataUsermanagement.enabledStatus).click()
-    cy.get(usermanagement.employeeName).type(dataUsermanagement.employeename)
+    cy.get(usermanagement.employeeNameForm).type(dataUsermanagement.employeename)
     cy.contains("Odis Adalwin").click()
-    cy.get(usermanagement.username).type(randomString)
+    cy.get(usermanagement.usernameForm).type(randomString)
     cy.contains(dataUsermanagement.alreadyExist).wait(1000)
    
   })
@@ -137,10 +135,10 @@ describe('Menu: Admin > User Management', () => {
   it('[-] INVALID EMPLOYEE NAME', () => {
     cy.get(usermanagement.adminButton).click()
     cy.get(usermanagement.addButton).click()
-    cy.get(usermanagement.employeeName).type('aaxc')
+    cy.get(usermanagement.employeeNameForm).type('aaxc')
     cy.wait(1000)
     cy.contains(dataUsermanagement.norecordsFound).click()
-    cy.get(usermanagement.employeenameVerify).contains(dataUsermanagement.invalid)
+    cy.get(usermanagement.employeenameFormVerify).contains(dataUsermanagement.invalid)
     cy.wait(1000)
   })
 
@@ -149,9 +147,9 @@ describe('Menu: Admin > User Management', () => {
 
     cy.get(usermanagement.adminButton).click()
     cy.get(usermanagement.addButton).click()
-    cy.get(usermanagement.username).type(randomString41)
+    cy.get(usermanagement.usernameForm).type(randomString41)
     cy.get(usermanagement.saveButton).click()
-    cy.get(usermanagement.usernameVerify).contains(dataUsermanagement["40char"])
+    cy.get(usermanagement.usernameFormVerify).contains(dataUsermanagement["40char"])
   })
 
   // INPUT PASSWORD & CONF PASSWORD MORE THAN 64 CHAR
@@ -170,9 +168,9 @@ describe('Menu: Admin > User Management', () => {
   it('[-] USERNAME LESS THAN 5 CHAR', () => {
     cy.get(usermanagement.adminButton).click()
     cy.get(usermanagement.addButton).click()
-    cy.get(usermanagement.username).type('aaxc')
+    cy.get(usermanagement.usernameForm).type('aaxc')
     cy.wait(1000)
-    cy.get(usermanagement.usernameVerify).contains(dataUsermanagement["5char"])
+    cy.get(usermanagement.usernameFormVerify).contains(dataUsermanagement["5char"])
     cy.wait(1000)
   })
 
